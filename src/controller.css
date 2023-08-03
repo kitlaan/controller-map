@@ -1,0 +1,157 @@
+/* || Controller Map */
+
+.controller {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(max-content, 1fr) var(--controller-width) minmax(max-content, 1fr);
+  grid-template-rows: max-content max-content max-content max-content;
+  grid-template-areas:
+    'above above above'
+    'ltop img rtop'
+    'lbot img rbot'
+    'below below below';
+  gap: 10px;
+  margin: 20px 0px;
+}
+
+#controller-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -50;
+}
+
+#controller-image {
+  grid-area: img;
+  opacity: 0.4;
+  z-index: -100;
+
+  width: var(--controller-width);
+  margin-bottom: calc(-1 * var(--controller-pad-bottom));
+}
+
+/* || Controller Map -- Above */
+
+.controller-above {
+  grid-area: above;
+  display: grid;
+  grid-template-columns: minmax(max-content, 3fr) minmax(max-content, 2fr) minmax(max-content, 2fr) minmax(max-content, 3fr);
+  justify-content: space-evenly;
+  gap: 30px;
+  margin-bottom: calc(-1 * var(--controller-pad-top));
+}
+.controller-above > * {
+  flex-grow: 1;
+}
+#controller-above-left-outer,
+#controller-above-right-outer {
+  flex-basis: 1;
+}
+#controller-above-left-inner,
+#controller-above-right-inner {
+  flex-basis: 0;
+}
+#controller-above-left-outer {
+  place-self: end end;
+}
+#controller-above-left-inner {
+  place-self: end end;
+}
+#controller-above-right-inner {
+  place-self: end start;
+}
+#controller-above-right-outer {
+  place-self: end start;
+}
+
+/* || Controller Map -- Sides */
+
+#controller-left-top {
+  grid-area: ltop;
+  place-self: start end;
+  margin-right: calc(-1 * var(--controller-pad-sides));
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#controller-left-bottom {
+  grid-area: lbot;
+  place-self: start end;
+  margin-right: calc(-1 * var(--controller-pad-sides));
+}
+#controller-right-top {
+  grid-area: rtop;
+  place-self: start start;
+  margin-left: calc(-1 * var(--controller-pad-sides));
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#controller-right-bottom {
+  grid-area: rbot;
+  place-self: start start;
+  margin-left: calc(-1 * var(--controller-pad-sides));
+}
+
+/* || Controller Map -- Below */
+
+.controller-below {
+  grid-area: below;
+  display: grid;
+  grid-template-columns: minmax(max-content, 1fr) minmax(max-content, 1fr);
+  gap: 50px;
+  _margin-top: calc(-1 * var(--controller-pad-bottom));
+}
+.controller-below > * {
+  flex-grow: 1;
+  flex-basis: 0;
+}
+#controller-below-left {
+  place-self: start end;
+}
+#controller-below-right {
+  place-self: start start;
+}
+
+/* || Controller Map -- Label Boxes */
+
+.controller .mapdef-left {
+  text-align: left;
+}
+.controller .mapdef-right {
+  text-align: right;
+}
+
+.controller div.mapdef-left,
+.controller div.mapdef-right {
+  border: 1px solid black;
+  background: rgb(255 255 255 / 70%);
+  padding: 3px 4px;
+}
+
+.controller table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.controller table.mapdef-left,
+.controller table.mapdef-right {
+  border: 1px solid black;
+  background: rgb(255 255 255 / 70%);
+}
+.controller table.mapdef-left td,
+.controller table.mapdef-right td {
+  border: 1px solid black;
+  padding: 3px 4px;
+  white-space: nowrap;
+}
+.controller table.mapdef-left td.icon,
+.controller table.mapdef-right td.icon {
+  padding: 0px;
+}
+
+.controller .icon > img {
+  display: inline;
+  vertical-align: middle;
+  height: 1.2lh;
+}

@@ -1,0 +1,212 @@
+{
+  "name": "Xbox Wireless Controller",
+  "image": {
+    "uri": "Outline Black SVG.svg",
+    "dimensions": {
+      "width": 4096,
+      "height": 2160
+    }
+  },
+  "features": {
+    "lstick": {
+      "name": "left stick",
+      "type": "stick",
+      "icon": "Left Stick All.svg",
+      "position": {
+        "x": 1600,
+        "y": 813
+      },
+      "target": "left-bottom"
+    },
+    "lstickbtn": {
+      "name": "left stick button",
+      "type": "button",
+      "icon": "Left Stick Click.svg",
+      "position": {
+        "x": 1600,
+        "y": 813
+      },
+      "target": "left-bottom"
+    },
+    "rstick": {
+      "name": "right stick",
+      "type": "stick",
+      "icon": "Right Stick All.svg",
+      "position": {
+        "x": 2277,
+        "y": 1077
+      },
+      "target": "below-right"
+    },
+    "rstickbtn": {
+      "name": "right stick button",
+      "type": "button",
+      "icon": "Right Stick Click.svg",
+      "position": {
+        "x": 2277,
+        "y": 1077
+      },
+      "target": "below-right"
+    },
+    "dpad": {
+      "name": "directional pad",
+      "icon": "D-Pad.svg",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "target": "below-left",
+      "features": {
+        "up": {
+          "name": "pad up",
+          "type": "button",
+          "icon": "D-Pad Up.svg",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "target": "below-left"
+        },
+        "left": {
+          "name": "pad left",
+          "type": "button",
+          "icon": "D-Pad Left.svg",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "target": "below-left"
+        },
+        "right": {
+          "name": "pad right",
+          "type": "button",
+          "icon": "D-Pad Right.svg",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "target": "below-left"
+        },
+        "down": {
+          "name": "pad down",
+          "type": "button",
+          "icon": "D-Pad Down.svg",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "target": "below-left"
+        }
+      }
+    },
+    "x": {
+      "name": "x",
+      "type": "button",
+      "icon": "X.svg",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "target": "right-bottom"
+    },
+    "y": {
+      "name": "y",
+      "type": "button",
+      "icon": "Y.svg",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "target": "right-bottom"
+    },
+    "a": {
+      "name": "a",
+      "type": "button",
+      "icon": "A.svg",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "target": "right-bottom"
+    },
+    "b": {
+      "name": "b",
+      "type": "button",
+      "icon": "B.svg",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "target": "right-bottom"
+    },
+    "lbtn": {
+      "name": "left shoulder",
+      "type": "button",
+      "icon": "Left Bumper.svg",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "target": "above-left-outer"
+    },
+    "ltrig": {
+      "name": "left trigger",
+      "type": "analog",
+      "icon": "Left Trigger.svg",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "target": "above-left-inner"
+    },
+    "rbtn": {
+      "name": "right shoulder",
+      "type": "button",
+      "icon": "Right Bumper.svg",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "target": "above-right-outer"
+    },
+    "rtrig": {
+      "name": "right trigger",
+      "type": "analog",
+      "icon": "Right Trigger.svg",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "target": "above-right-inner"
+    },
+    "view": {
+      "name": "view",
+      "type": "button",
+      "icon": "View.svg",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "target": "left-top"
+    },
+    "menu": {
+      "name": "menu",
+      "type": "button",
+      "icon": "Menu.svg",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "target": "right-top"
+    },
+    "logo": {
+      "name": "logo",
+      "type": "button",
+      "icon": "Home.svg",
+      "position": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  }
+}
