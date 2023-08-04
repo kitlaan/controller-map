@@ -124,7 +124,7 @@
 
 .controller div.mapdef-left,
 .controller div.mapdef-right {
-  border: 1px solid black;
+  border: 1px solid #bbb;
   background: rgb(255 255 255 / 70%);
   padding: 3px 4px;
 }
@@ -136,12 +136,12 @@
 
 .controller table.mapdef-left,
 .controller table.mapdef-right {
-  border: 1px solid black;
+  border: 1px solid #bbb;
   background: rgb(255 255 255 / 70%);
 }
 .controller table.mapdef-left td,
 .controller table.mapdef-right td {
-  border: 1px solid black;
+  border: 1px solid #bbb;
   padding: 3px 4px;
   white-space: nowrap;
 }

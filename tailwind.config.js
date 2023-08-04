@@ -2,11 +2,11 @@
 export default {
   content: [
     './index.html',
-    './controllers/**/*.{html,js,ts,jsx,tsx}',
-    './src/**/*.{js,ts,jsx,tsx}',
+    './src/**/*.{vue,js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {},
   },
   plugins: [],
-};
+}
+
