@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// TODO: all of this
 // defineEmits for specific actions
 </script>
 

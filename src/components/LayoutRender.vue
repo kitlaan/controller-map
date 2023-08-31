@@ -20,7 +20,7 @@ function filterRegion(region: string): ButtonConfig[] {
       names.push(itemkey)
     }
     if (item.features) {
-      for (const [subitemkey, subitem] of Object?.entries(item.features)) {
+      for (const [subitemkey, subitem] of Object.entries(item.features)) {
         if (subitem.target == region) {
           names.push(`${itemkey}.${subitemkey}`)
         }

@@ -19,8 +19,8 @@ import Menu from './components/Menu.vue'
 
 export type ButtonConfig = {
   id: string;
-  modifiers?: string[];
-  description?: string;
+  modifiers: string[];
+  description: string;
 }
 
 let layout: Ref<ControllerType> = ref("xboxone")
@@ -29,10 +29,15 @@ if (params.has('l')) {
   layout.value = params.get('l') as ControllerType
 }
 
+// TODO: if parsing out params errors, do we just let the page fail?
+// ..... or do we try to do better and show an error?
+// ..... this means sanity checking the data (at least) against the typescript?
+
+
 // TODO: this is all temporary
 const title: Ref<string> = ref("Test")
 const mapping: Ref<ButtonConfig[]> = ref([
-  { id: 'rstick', description: 'testing rstick with b' },
+  { id: 'rstick', description: 'testing rstick with b', modifiers: [] },
   {
     id: 'rstickbtn',
     modifiers: ['x', 'a'],
@@ -43,7 +48,7 @@ const mapping: Ref<ButtonConfig[]> = ref([
   { id: 'ltrig', description: 'left', modifiers: ['a', 'x'] },
   { id: 'rtrig', description: 'right trigger', modifiers: ['a'] },
   { id: 'rbtn', description: 'right button', modifiers: ['a'] },
-  { id: 'dpad', description: 'dpad' },
+  { id: 'dpad', description: 'dpad', modifiers: [] },
   { id: 'dpad', description: 'dpad-b', modifiers: ['b'] },
   { id: 'dpad.left', description: 'left-a', modifiers: ['a'] },
   { id: 'dpad.right', description: 'right-a', modifiers: ['a'] },
@@ -63,9 +68,9 @@ const mapping: Ref<ButtonConfig[]> = ref([
 </script>
 
 <template>
-  <Menu class="print:hidden" />
+  <Menu />
   <LayoutRender :layout="layout" :title="title" :mapping="mapping" />
-  <Editor class="print:hidden" />
+  <Editor :layout="layout" :mapping="mapping" />
 </template>
 
 <style scoped>
