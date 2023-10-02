@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "name": "Testing 1 2 3",
+  "date": "2023-10-02",
+  "layout": "xboxone",
+  "mapping": [
+    { "id": "rstick", "description": "testing rstick with b", "modifiers": [] },
+    {
+      "id": "rstickbtn",
+      "description": "testing rstickbtn with x and a",
+      "modifiers": ["x", "a"]
+    },
+    { "id": "ltrig", "description": "left", "modifiers": ["a"] },
+    { "id": "lbtn", "description": "left button", "modifiers": ["a"] },
+    { "id": "ltrig", "description": "left", "modifiers": ["a", "x"] },
+    { "id": "rtrig", "description": "right trigger", "modifiers": ["a"] },
+    { "id": "rbtn", "description": "right button", "modifiers": ["a"] },
+    { "id": "dpad", "description": "dpad", "modifiers": [] },
+    { "id": "dpad", "description": "dpad-b", "modifiers": ["b"] },
+    { "id": "dpad.left", "description": "left-a", "modifiers": ["a"] },
+    { "id": "dpad.right", "description": "right-a", "modifiers": ["a"] },
+    { "id": "dpad.up", "description": "up-a-b", "modifiers": ["a", "b"] },
+    { "id": "dpad.down", "description": "down-a", "modifiers": ["a"] },
+    { "id": "view", "description": "view", "modifiers": ["a"] },
+    { "id": "menu", "description": "menu", "modifiers": ["a"] },
+    { "id": "lstick", "description": "stick", "modifiers": ["a"] },
+    { "id": "lstickbtn", "description": "stick", "modifiers": ["a"] },
+    { "id": "a", "description": "a", "modifiers": ["a"] },
+    { "id": "x", "description": "x", "modifiers": ["a"] },
+    { "id": "y", "description": "y", "modifiers": ["a"] },
+    { "id": "y", "description": "y", "modifiers": ["a"] },
+    { "id": "b", "description": "b", "modifiers": ["a"] },
+    { "id": "b", "description": "b", "modifiers": ["a"] }
+  ]
+}

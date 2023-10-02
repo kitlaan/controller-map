@@ -23,50 +23,46 @@ export type ButtonConfig = {
   description: string;
 }
 
-let layout: Ref<ControllerType | undefined> = ref(ControllerType.XboxOne)
+export type JsonButtonConfig = {
+  version: number;
+  name: string;
+  date: string;
+  layout: ControllerType;
+  mapping: ButtonConfig[];
+}
+
+let layout: Ref<ControllerType | undefined> = ref(undefined)
+
+const title: Ref<string> = ref("")
+const mapping: Ref<ButtonConfig[]> = ref([])
+
+function loadJSON(jsonmap: JsonButtonConfig) {
+  // TODO: validate JSON
+  if (jsonmap.version == 1) {
+    title.value = jsonmap.name
+    layout.value = jsonmap.layout
+    mapping.value = jsonmap.mapping
+  }
+}
 
 const params = new URLSearchParams(document.location.search)
-if (params.has('l')) {
+if (params.has('p')) { // To load a preset configuration.
+  // e.g. http://....?p=testing
+  const p = params.get('p')
+  if (p.match(/^[a-zA-Z0-9]+/)) {
+    fetch(`./presets/${p}.json`)
+      .then((response) => response.json())
+      .then((data) => {
+        loadJSON(data as JsonButtonConfig)
+      })
+      .catch(console.error)
+  }
+}
+else if (params.has('l')) { // To start a new layout of a specific type.
+  // e.g. http://....?l=xboxone
   const l = params.get('l') as ControllerType
   layout.value = Object.values(ControllerType).includes(l) ? l : undefined
 }
-
-// TODO: if parsing out params errors, do we just let the page fail?
-// ..... or do we try to do better and show an error?
-// ..... this means sanity checking the data (at least) against the typescript?
-
-
-// TODO: this is all temporary
-const title: Ref<string> = ref("Test")
-const mapping: Ref<ButtonConfig[]> = ref([
-  { id: 'rstick', description: 'testing rstick with b', modifiers: [] },
-  {
-    id: 'rstickbtn',
-    modifiers: ['x', 'a'],
-    description: 'testing rstickbtn with x and a',
-  },
-  { id: 'ltrig', description: 'left', modifiers: ['a'] },
-  { id: 'lbtn', description: 'left button', modifiers: ['a'] },
-  { id: 'ltrig', description: 'left', modifiers: ['a', 'x'] },
-  { id: 'rtrig', description: 'right trigger', modifiers: ['a'] },
-  { id: 'rbtn', description: 'right button', modifiers: ['a'] },
-  { id: 'dpad', description: 'dpad', modifiers: [] },
-  { id: 'dpad', description: 'dpad-b', modifiers: ['b'] },
-  { id: 'dpad.left', description: 'left-a', modifiers: ['a'] },
-  { id: 'dpad.right', description: 'right-a', modifiers: ['a'] },
-  { id: 'dpad.up', description: 'up-a-b', modifiers: ['a', 'b'] },
-  { id: 'dpad.down', description: 'down-a', modifiers: ['a'] },
-  { id: 'view', description: 'view', modifiers: ['a'] },
-  { id: 'menu', description: 'menu', modifiers: ['a'] },
-  { id: 'lstick', description: 'stick', modifiers: ['a'] },
-  { id: 'lstickbtn', description: 'stick', modifiers: ['a'] },
-  { id: 'a', description: 'a', modifiers: ['a'] },
-  { id: 'x', description: 'x', modifiers: ['a'] },
-  { id: 'y', description: 'y', modifiers: ['a'] },
-  { id: 'y', description: 'y', modifiers: ['a'] },
-  { id: 'b', description: 'b', modifiers: ['a'] },
-  { id: 'b', description: 'b', modifiers: ['a'] },
-])
 </script>
 
 <template>
