@@ -1,6 +1,8 @@
 import xboxone from './assets/controllers/xboxone.json'
 
-export type ControllerType = "xboxone"
+export enum ControllerType {
+  XboxOne = "xboxone",
+}
 
 export type Uri = string
 

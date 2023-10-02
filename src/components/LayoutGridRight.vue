@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Ref, ref, computed } from 'vue'
+import { computed } from 'vue'
 import { ButtonConfig } from '../App.vue'
 import { ControllerType, getIcon } from '../controller'
 
@@ -33,7 +33,7 @@ let tableNeedsHeader = computed(() => {
 })
 
 let tableRows = computed(() => {
-  let rows = []
+  let rows: string[] = []
   for (const item of props.mapping) {
     if (!rows.includes(item.id)) {
       rows.push(item.id)

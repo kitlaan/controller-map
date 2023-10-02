@@ -23,10 +23,12 @@ export type ButtonConfig = {
   description: string;
 }
 
-let layout: Ref<ControllerType> = ref("xboxone")
+let layout: Ref<ControllerType | undefined> = ref(ControllerType.XboxOne)
+
 const params = new URLSearchParams(document.location.search)
 if (params.has('l')) {
-  layout.value = params.get('l') as ControllerType
+  const l = params.get('l') as ControllerType
+  layout.value = Object.values(ControllerType).includes(l) ? l : undefined
 }
 
 // TODO: if parsing out params errors, do we just let the page fail?
@@ -69,8 +71,11 @@ const mapping: Ref<ButtonConfig[]> = ref([
 
 <template>
   <Menu />
-  <LayoutRender :layout="layout" :title="title" :mapping="mapping" />
-  <Editor :layout="layout" :mapping="mapping" />
+
+  <LayoutRender v-if="layout" :layout="layout" :title="title" :mapping="mapping" />
+  <Editor v-if="layout" :layout="layout" :mapping="mapping" />
+
+  <div v-if="!layout" class="m-8 font-bold">Invalid Layout</div>
 </template>
 
 <style scoped>
