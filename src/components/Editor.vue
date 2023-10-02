@@ -33,7 +33,7 @@ for (const [itemkey, item] of Object.entries(layouts[props.layout].features)) {
   <div class="print:hidden mx-8 mb-8">
     <div class="ml-4 mb-2 text-xs text-gray-500">button definitions</div>
     <div>
-      <ButtonEditor v-for="(_item, ix) in mapping" v-model="mapping[ix]" :items="items" />
+      <ButtonEditor v-for="(_item, ix) in mapping" v-model="mapping[ix]" :items="items" @delete="mapping.splice(ix, 1)" />
     </div>
     <div class="mt-6 ml-4 mb-2 text-xs text-gray-500">define another button</div>
     <div class="p-2 rounded-md border border-slate-400">
