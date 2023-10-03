@@ -1,10 +1,33 @@
 <script setup lang="ts">
-// TODO: all of this
-// defineEmits for specific actions
+import { Ref, ref } from 'vue';
+import { JsonButtonConfig } from '../App.vue';
+import { ControllerType } from '../controller';
+
+
+defineEmits<{
+  (e: 'loadJsonFile', name: string): void
+  (e: 'loadJson', data: JsonButtonConfig): void
+}>()
+
+const jsonPayload: Ref<JsonButtonConfig> = ref({
+  version: 1,
+  name: "Empty",
+  date: "2023-10-02",
+  layout: ControllerType.XboxOne,
+  mapping: [
+    { id: "", description: "", modifiers: [] },
+    { id: "", description: "", modifiers: [] },
+    { id: "", description: "", modifiers: [] },
+    { id: "", description: "", modifiers: [] },
+  ]
+})
 </script>
 
 <template>
-  <div class="text-xl print:hidden">menu goes here</div>
+  <div class="print:hidden flex flex-row gap-1">
+    <button class="rounded border-2 p-1" @click="$emit('loadJsonFile', 'testing')">load preset</button>
+    <button class="rounded border-2 p-1" @click="$emit('loadJson', jsonPayload)">load data</button>
+  </div>
 </template>
 
 <style scoped>

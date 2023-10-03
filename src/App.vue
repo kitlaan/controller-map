@@ -36,7 +36,7 @@ let layout: Ref<ControllerType | undefined> = ref(undefined)
 const title: Ref<string> = ref("")
 const mapping: Ref<ButtonConfig[]> = ref([])
 
-function loadJSON(jsonmap: JsonButtonConfig) {
+function loadJson(jsonmap: JsonButtonConfig) {
   // TODO: validate JSON
   if (jsonmap.version == 1) {
     title.value = jsonmap.name
@@ -44,18 +44,23 @@ function loadJSON(jsonmap: JsonButtonConfig) {
     mapping.value = jsonmap.mapping
   }
 }
+function loadJsonFile(filename: string) {
+  if (filename.match(/^[a-zA-Z0-9_-]+/)) {
+    fetch(`./presets/${filename}.json`)
+      .then((response) => response.json())
+      .then((data) => {
+        loadJson(data as JsonButtonConfig)
+      })
+      .catch(console.error)
+  }
+}
 
 const params = new URLSearchParams(document.location.search)
 if (params.has('p')) { // To load a preset configuration.
   // e.g. http://....?p=testing
   const p = params.get('p')
-  if (p.match(/^[a-zA-Z0-9_-]+/)) {
-    fetch(`./presets/${p}.json`)
-      .then((response) => response.json())
-      .then((data) => {
-        loadJSON(data as JsonButtonConfig)
-      })
-      .catch(console.error)
+  if (p) {
+    loadJsonFile(p)
   }
 }
 else if (params.has('l')) { // To start a new layout of a specific type.
@@ -66,7 +71,7 @@ else if (params.has('l')) { // To start a new layout of a specific type.
 </script>
 
 <template>
-  <Menu />
+  <Menu @load-json-file="(n) => loadJsonFile(n)" @load-json="(d) => loadJson(d)"/>
 
   <LayoutRender v-if="layout" :layout="layout" :title="title" :mapping="mapping" />
   <Editor v-if="layout" :layout="layout" :mapping="mapping" />

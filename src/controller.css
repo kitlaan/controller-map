@@ -100,7 +100,7 @@
   display: grid;
   grid-template-columns: minmax(max-content, 1fr) minmax(max-content, 1fr);
   gap: 50px;
-  _margin-top: calc(-1 * var(--controller-pad-bottom));
+  min-height: calc(var(--controller-pad-bottom));
 }
 .controller-below > * {
   flex-grow: 1;
