@@ -49,7 +49,7 @@ const params = new URLSearchParams(document.location.search)
 if (params.has('p')) { // To load a preset configuration.
   // e.g. http://....?p=testing
   const p = params.get('p')
-  if (p.match(/^[a-zA-Z0-9]+/)) {
+  if (p.match(/^[a-zA-Z0-9_-]+/)) {
     fetch(`./presets/${p}.json`)
       .then((response) => response.json())
       .then((data) => {
