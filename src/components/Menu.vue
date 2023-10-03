@@ -11,14 +11,10 @@ defineEmits<{
 
 const jsonPayload: Ref<JsonButtonConfig> = ref({
   version: 1,
-  name: "Empty",
-  date: "2023-10-02",
+  name: "Test",
+  date: "",
   layout: ControllerType.XboxOne,
   mapping: [
-    { id: "", description: "", modifiers: [] },
-    { id: "", description: "", modifiers: [] },
-    { id: "", description: "", modifiers: [] },
-    { id: "", description: "", modifiers: [] },
   ]
 })
 </script>

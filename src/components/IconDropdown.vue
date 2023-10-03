@@ -11,6 +11,7 @@ export type DropdownItem = {
 const props = defineProps<{
   modelValue: string | string[]
   items: DropdownItem[]
+  placeholder?: string
 }>()
 
 const emit = defineEmits<{
@@ -65,9 +66,10 @@ const showTimer: Ref<NodeJS.Timeout | undefined> = ref(undefined)
 <template>
   <div class="relative inline-block">
     <button type="button"
-      class="inline-flex w-full justify-center gap-x-1.5 rounded-md p-1 ring-1 ring-inset ring-gray-300 shadow-sm hover:bg-gray-200"
+      class="inline-flex items-center w-full justify-center gap-x-1.5 rounded-md p-1 ring-1 ring-inset ring-gray-300 shadow-sm hover:bg-gray-200"
       @click="toggleModal">
       <img draggable="false" v-for="s in typeof props.modelValue === 'string' ? [ modelValue ] : modelValue" :src="items.find((e) => e.label == s)?.url" />
+      <span v-if="modelValue == '' || modelValue.length == 0" class="text-gray-400">{{ placeholder }}</span>
     </button>
     <div
       class="absolute -top-1 -left-1 z-10 p-1 origin-top-right rounded-md shadow-lg ring-1 ring-black ring-opacity-5 bg-gray-200 focus:outline-none w-[260px] cursor-pointer"
