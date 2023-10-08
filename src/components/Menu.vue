@@ -20,7 +20,7 @@ const jsonPayload: Ref<JsonButtonConfig> = ref({
 </script>
 
 <template>
-  <div class="print:hidden flex flex-row gap-1">
+  <div class="print:hidden flex flex-row gap-1 mb-4">
     <button class="rounded border-2 p-1" @click="$emit('loadJsonFile', 'testing')">load preset</button>
     <button class="rounded border-2 p-1" @click="$emit('loadJson', jsonPayload)">load data</button>
   </div>

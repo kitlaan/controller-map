@@ -12,6 +12,11 @@ const props = defineProps<{
   mapping: ButtonConfig[]
 }>()
 
+defineEmits<{
+  (e: 'update:title', title: string): void
+}>()
+
+
 function filterRegion(region: string): ButtonConfig[] {
   // first find the identifiers that go in this region
   var names = []
@@ -40,7 +45,9 @@ function filterRegion(region: string): ButtonConfig[] {
 </script>
 
 <template>
-  <div class="font-bold text-center">{{ title }}</div>
+  <div class="flex justify-center my-2">
+    <input type="text" class="font-bold text-center w-2/3 ring-1 ring-inset rounded ring-gray-200 print:ring-0" placeholder="title" :value="title" @input="$emit('update:title', $event.target.value)" />
+  </div>
 
   <div class="controller">
     <div class="controller-above">

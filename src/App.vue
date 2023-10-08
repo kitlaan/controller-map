@@ -73,7 +73,7 @@ else if (params.has('l')) { // To start a new layout of a specific type.
 <template>
   <Menu @load-json-file="(n) => loadJsonFile(n)" @load-json="(d) => loadJson(d)"/>
 
-  <LayoutRender v-if="layout" :layout="layout" :title="title" :mapping="mapping" />
+  <LayoutRender v-if="layout" :layout="layout" v-model:title="title" :mapping="mapping" />
   <Editor v-if="layout" :layout="layout" :mapping="mapping" />
 
   <div v-if="!layout" class="m-8 font-bold">Invalid Layout</div>
