@@ -46,10 +46,10 @@ function filterRegion(region: string): ButtonConfig[] {
 
 <template>
   <div class="flex justify-center my-2">
-    <input type="text" class="font-bold text-center w-2/3 ring-1 ring-inset rounded ring-gray-200 print:ring-0" placeholder="title" :value="title" @input="$emit('update:title', $event.target.value)" />
+    <input type="text" class="font-bold text-center w-2/3 ring-1 ring-inset rounded ring-gray-200 print:ring-0" placeholder="title" :value="title" @input="$emit('update:title', ($event.target as HTMLInputElement).value)" />
   </div>
 
-  <div class="controller">
+  <div class="controller mx-4">
     <div class="controller-above">
       <LayoutMapRight id="controller-above-left-outer" :layout="layout" :mapping="filterRegion('above-left-outer')" />
       <LayoutMapRight id="controller-above-left-inner" :layout="layout" :mapping="filterRegion('above-left-inner')" />
