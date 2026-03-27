@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { ButtonConfig } from '../App.vue'
-import { ControllerType, getIcon } from '../controller'
+import type { ButtonConfig } from '../../domain/types'
+import { ControllerType, getIcon } from '../../controller'
 
 const props = defineProps<{
   layout: ControllerType

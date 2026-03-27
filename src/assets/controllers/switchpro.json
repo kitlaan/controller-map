@@ -1,0 +1,38 @@
+{
+  "id": "switchpro",
+  "name": "Nintendo Switch Pro Controller",
+  "image": {
+    "uri": "Outline Black SVG.svg",
+    "dimensions": {
+      "width": 4096,
+      "height": 2160
+    }
+  },
+  "features": {
+    "a":         { "name": "A",                   "type": "button", "icon": "A.svg",                  "position": {"x": 0, "y": 0}, "target": "right-bottom" },
+    "b":         { "name": "B",                   "type": "button", "icon": "B.svg",                  "position": {"x": 0, "y": 0}, "target": "right-bottom" },
+    "x":         { "name": "X",                   "type": "button", "icon": "X.svg",                  "position": {"x": 0, "y": 0}, "target": "right-bottom" },
+    "y":         { "name": "Y",                   "type": "button", "icon": "Y.svg",                  "position": {"x": 0, "y": 0}, "target": "right-bottom" },
+    "l":         { "name": "L",                   "type": "button", "icon": "L.svg",                  "position": {"x": 0, "y": 0}, "target": "above-left-outer" },
+    "zl":        { "name": "ZL",                  "type": "analog", "icon": "ZL.svg",                 "position": {"x": 0, "y": 0}, "target": "above-left-inner" },
+    "r":         { "name": "R",                   "type": "button", "icon": "R.svg",                  "position": {"x": 0, "y": 0}, "target": "above-right-outer" },
+    "zr":        { "name": "ZR",                  "type": "analog", "icon": "ZR.svg",                 "position": {"x": 0, "y": 0}, "target": "above-right-inner" },
+    "minus":     { "name": "Minus",               "type": "button", "icon": "Minus.svg",              "position": {"x": 0, "y": 0}, "target": "left-top" },
+    "plus":      { "name": "Plus",                "type": "button", "icon": "Plus.svg",               "position": {"x": 0, "y": 0}, "target": "right-top" },
+    "home":      { "name": "Home",                "type": "button", "icon": "Home.svg",               "position": {"x": 0, "y": 0} },
+    "capture":   { "name": "Capture",             "type": "button", "icon": "Capture.svg",            "position": {"x": 0, "y": 0} },
+    "lstick":    { "name": "left stick",          "type": "stick",  "icon": "Left Stick All.svg",     "position": {"x": 0, "y": 0}, "target": "left-bottom" },
+    "lstickbtn": { "name": "left stick button",   "type": "button", "icon": "Left Stick Click.svg",   "position": {"x": 0, "y": 0}, "target": "left-bottom" },
+    "rstick":    { "name": "right stick",         "type": "stick",  "icon": "Right Stick All.svg",    "position": {"x": 0, "y": 0}, "target": "below-right" },
+    "rstickbtn": { "name": "right stick button",  "type": "button", "icon": "Right Stick Click.svg",  "position": {"x": 0, "y": 0}, "target": "below-right" },
+    "dpad": {
+      "name": "directional pad", "icon": "Pro D-Pad.svg", "position": {"x": 0, "y": 0}, "target": "below-left",
+      "features": {
+        "up":    { "name": "pad up",    "type": "button", "icon": "Pro D-Pad Up.svg",    "position": {"x": 0, "y": 0}, "target": "below-left" },
+        "down":  { "name": "pad down",  "type": "button", "icon": "Pro D-Pad Down.svg",  "position": {"x": 0, "y": 0}, "target": "below-left" },
+        "left":  { "name": "pad left",  "type": "button", "icon": "Pro D-Pad Left.svg",  "position": {"x": 0, "y": 0}, "target": "below-left" },
+        "right": { "name": "pad right", "type": "button", "icon": "Pro D-Pad Right.svg", "position": {"x": 0, "y": 0}, "target": "below-left" }
+      }
+    }
+  }
+}

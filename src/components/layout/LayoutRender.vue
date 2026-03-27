@@ -1,0 +1,69 @@
+<script setup lang="ts">
+import LayoutGrid from './LayoutGrid.vue'
+import LayoutMap from './LayoutMap.vue'
+
+import type { ButtonConfig } from '../../domain/types'
+import { ControllerType, getImage, layouts } from '../../controller'
+
+const props = defineProps<{
+  title: string
+  layout: ControllerType
+  mapping: ButtonConfig[]
+}>()
+
+defineEmits<{
+  (e: 'update:title', title: string): void
+}>()
+
+function filterRegion(region: string): ButtonConfig[] {
+  var names = []
+  for (const [itemkey, item] of Object.entries(layouts[props.layout].features)) {
+    if (item.target == region) {
+      names.push(itemkey)
+    }
+    if (item.features) {
+      for (const [subitemkey, subitem] of Object.entries(item.features)) {
+        if (subitem.target == region) {
+          names.push(`${itemkey}.${subitemkey}`)
+        }
+      }
+    }
+  }
+
+  let subset = []
+  for (const item of props.mapping) {
+    if (names.includes(item.id)) {
+      subset.push(item)
+    }
+  }
+  return subset
+}
+</script>
+
+<template>
+  <div class="flex justify-center my-2">
+    <input type="text" class="font-bold text-center w-2/3 ring-1 ring-inset rounded ring-gray-200 print:ring-0" placeholder="title" :value="title" @input="$emit('update:title', ($event.target as HTMLInputElement).value)" />
+  </div>
+
+  <div class="controller mx-4">
+    <div class="controller-above">
+      <LayoutMap align="right" id="controller-above-left-outer" :layout="layout" :mapping="filterRegion('above-left-outer')" />
+      <LayoutMap align="right" id="controller-above-left-inner" :layout="layout" :mapping="filterRegion('above-left-inner')" />
+      <LayoutMap align="left"  id="controller-above-right-inner" :layout="layout" :mapping="filterRegion('above-right-inner')" />
+      <LayoutMap align="left"  id="controller-above-right-outer" :layout="layout" :mapping="filterRegion('above-right-outer')" />
+    </div>
+    <LayoutMap align="right" id="controller-left-top"    :layout="layout" :mapping="filterRegion('left-top')" />
+    <img id="controller-image" :src="getImage(layout)" />
+    <LayoutMap align="left"  id="controller-right-top"   :layout="layout" :mapping="filterRegion('right-top')" />
+    <LayoutMap align="right" id="controller-left-bottom" :layout="layout" :mapping="filterRegion('left-bottom')" />
+    <LayoutMap align="left"  id="controller-right-bottom" :layout="layout" :mapping="filterRegion('right-bottom')" />
+    <div class="controller-below">
+      <LayoutGrid id="controller-below-left"  :layout="layout" :mapping="filterRegion('below-left')" />
+      <LayoutMap align="left" id="controller-below-right" :layout="layout" :mapping="filterRegion('below-right')" />
+    </div>
+    <canvas id="controller-overlay"></canvas> <!-- TODO -->
+  </div>
+</template>
+
+<style scoped>
+</style>

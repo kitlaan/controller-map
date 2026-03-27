@@ -27,7 +27,9 @@ defineEmits<{
         <div class="modal-footer">
           <slot name="footer">
             <div class="modal-buttons">
-              <button class="rounded border-2 px-4 hover:bg-gray-200" v-show="closeButton" @click="$emit('close')">Close</button>
+              <slot name="footer-buttons">
+                <button class="rounded border-2 px-4 hover:bg-gray-200" v-show="closeButton" @click="$emit('close')">Close</button>
+              </slot>
             </div>
           </slot>
         </div>
@@ -44,7 +46,7 @@ defineEmits<{
 
   .modal-fade-enter-active,
   .modal-fade-leave-active {
-    transition: opacity 0.5s ease;
+    transition: opacity 0.2s ease;
   }
 
   .modal-backdrop {
@@ -62,8 +64,8 @@ defineEmits<{
 
   .modal-container {
     background: white;
-    box-shadow: 0 2px 8px;
-    border-radius: 2px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    border-radius: 8px;
     overflow-x: auto;
     display: flex;
     flex-direction: column;
@@ -73,7 +75,7 @@ defineEmits<{
 
   .modal-header,
   .modal-footer {
-    padding: 8px 15px;
+    padding: 12px 20px;
     display: flex;
   }
 
@@ -93,7 +95,7 @@ defineEmits<{
 
   .modal-body {
     position: relative;
-    padding: 8px 15px;
+    padding: 16px 20px;
     max-height: 70vh;
     overflow-y: auto;
   }

@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 
 import './style.css'
 import './controller.css'
@@ -11,17 +12,27 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import {
   faAdd,
   faGripLinesVertical,
-  faTrash } from '@fortawesome/free-solid-svg-icons'
+  faRotateLeft,
+  faRotateRight,
+  faTrash,
+} from '@fortawesome/free-solid-svg-icons'
 import {
-  faGithub
+  faClipboard,
+} from '@fortawesome/free-regular-svg-icons'
+import {
+  faGithub,
 } from '@fortawesome/free-brands-svg-icons'
 library.add(
   faAdd,
+  faClipboard,
   faGithub,
   faGripLinesVertical,
+  faRotateLeft,
+  faRotateRight,
   faTrash,
 )
 
 createApp(App)
+  .use(createPinia())
   .component('font-awesome-icon', FontAwesomeIcon)
   .mount('#app')

@@ -1,6 +1,16 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+html, body, #app {
+  height: 100%;
+  overflow: hidden;
+}
+
+@media print {
+  html, body, #app {
+    height: auto;
+    overflow: visible;
+  }
+}
 
 :root {
     --controller-width: 500px;
